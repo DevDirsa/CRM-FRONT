@@ -1,0 +1,71 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="loadingTemplate"></ngx-loading>
+
+<div class="row">
+    <div class="col-md-12">
+        <nb-card class="inline-form-card">
+            <nb-card-header>Listado de agentes</nb-card-header>
+            <nb-card-body>
+                <form class="form-inline">
+                    <input type="search" nbInput fullWidth placeholder="Jane Doe">
+                    <button type="submit" nbButton status="warning" outline>Buscar</button>
+                    <button type="button" nbButton status="success" (click)="load()" outline>Nueva carga </button>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-12">
+        <nb-card class="inline-form-card">
+            <nb-card-body>
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th scope="col">No. Crédito</th>
+                            <th scope="col">Nombre completo</th>
+                            <th scope="col">Dictamen</th>
+                            <th scope="col">Subdictamen</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let load of loads">
+                            <th
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                                {{ load.loan_application_id }}
+                            </th>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                {{ load.full_name }}
+                            </td>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                {{ load.dictamen }}
+                            </td>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                {{ load.subdictamen }}
+
+                               
+                            </td>
+
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+
+                                <a
+                                    class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase ">
+                                    <i class='fas fa-eye'></i>
+
+                                </a>
+                                <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase "
+                                    >
+                                    <i class='fas fa-trash-alt'></i>
+
+                                </a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="loadingTemplate"></ngx-loading>
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>Carga de layout</nb-card-header>
+            <nb-card-body>
+                <form>
+
+                 
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputWebsite" class="label">Archivo</label>
+                                <input type="file" (change)="onFileChange($event)" accept=".xlsx, .xls" nbInput fullWidth id="inputWebsite" placeholder="Contraseña">
+                            </div>
+                        </div>
+                    <div class="buttons">
+                        <button type="button" nbButton (click)="return()" status="danger" outline>Cancelar</button>
+                        <button type="submit" nbButton status="success" outline>Guardar</button>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

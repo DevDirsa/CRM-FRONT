@@ -1,0 +1,74 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"
+    [template]="loadingTemplate"></ngx-loading>
+<div class="row">
+    <div class="col-md-12">
+        <nb-card class="inline-form-card">
+            <nb-card-header>Listado de agentes</nb-card-header>
+            <nb-card-body>
+                <form class="form-inline">
+                    <input type="search" nbInput fullWidth placeholder="Jane Doe">
+                    <button type="submit" nbButton status="warning" outline>Buscar</button>
+                    <button type="button" nbButton status="info" (click)="create()" outline>Crear agente</button>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-12">
+        <nb-card class="inline-form-card">
+            <nb-card-body>
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nombre completo</th>
+                                <th scope="col">Perfil</th>
+                                <th scope="col">Estatus</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let agent of agents">
+                                <th
+                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                                    {{ agent.id }}
+                            
+                                </th>
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    {{ agent.name }} {{ agent.surname }} {{ agent.second_surname }}
+                            
+                                </td>
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    {{ agent.id_type_user | profile}}
+                            
+                                </td>
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    <!-- -->
+                            
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input id="customCheckLogin" type="checkbox" (change)="delete(agent.id )" [checked]="agent.status === 1"
+                                            class="form-checkbox  text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150 rounded"
+                                            style="margin-right: 10px" />
+                                        {{ agent.status | status}}
+                                    </label>
+                                </td>
+                            
+                                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            
+                                    <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase ">
+                                        <i class='fas fa-eye'></i>
+                            
+                                    </a>
+                                    <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase "
+                                        (click)="delete(agent.id)">
+                                        <i class='fas fa-trash-alt'></i>
+                            
+                                    </a>
+                                </td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

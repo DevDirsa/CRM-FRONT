@@ -1,0 +1,65 @@
+<div class="row">
+
+    <div class="col-md-12">
+
+
+        <nb-card>
+            <nb-card-header>Información del agente</nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="agentForm" (ngSubmit)="onSubmit()">
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputFirstName" class="label">Nombre</label>
+                                <input type="text" nbInput fullWidth id="inputFirstName" placeholder="Nombre" formControlName="name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputLastName" class="label">Apellido paterno</label>
+                                <input type="text" nbInput fullWidth id="inputLastName" placeholder="Apellido paterno" formControlName="surname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputEmail" class="label">Apellido materno</label>
+                                <input type="text" nbInput fullWidth id="inputEmail" placeholder="Apellido materno" formControlName="second_surname">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputWebsite" class="label">Usuario</label>
+                                <input type="text" nbInput fullWidth id="inputWebsite" placeholder="Usuario" formControlName="user">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputWebsite" class="label">Correo electronico</label>
+                                <input type="text" nbInput fullWidth id="inputWebsite" placeholder="Correo electronico" formControlName="email">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputWebsite" class="label">Contraseña</label>
+                                <input type="password" nbInput fullWidth id="inputWebsite" placeholder="Contraseña" formControlName="password">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputWebsite" class="label">Repetir contraseña</label>
+                                <input type="password" nbInput fullWidth id="inputWebsite" placeholder="Contraseña" formControlName="passwordConfirm">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" nbButton (click)="return()" status="danger" outline>Cancelar</button>
+                        <button type="submit" nbButton status="success" outline>Guardar</button>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
